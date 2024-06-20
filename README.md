@@ -1,6 +1,13 @@
-# 0x02-shell_redirections
+# Shell Permissions and Shell Redirections
 
-## Script Descriptions
+## Shell Permissions
 
-### 0-hello_world
-This script prints "Hello, World" followed by a new line to the standard output.
+This directory contains scripts related to shell permissions. Below is a description of each script:
+
+### 0-iam_betty
+This script switches the current user to the user `betty`.
+
+#### Usage
+Run the script to switch to the user `betty`:
+```bash
+./0-iam_betty
