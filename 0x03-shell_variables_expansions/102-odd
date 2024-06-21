@@ -1,2 +1,2 @@
 #!/bin/bash
-awk 'NR % 2 == 1' "$@"
+while read -r line; do read -r line && echo "$line"; done
