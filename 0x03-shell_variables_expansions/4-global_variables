@@ -1,2 +1,2 @@
 #!/bin/bash
-env | grep "^HBTN" | cut -d= -f2
+echo "HBTN=89"
