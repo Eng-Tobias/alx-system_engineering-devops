@@ -1,4 +1,2 @@
 #!/bin/bash
-# Set the global variable BEST
 export BEST="School"
-
