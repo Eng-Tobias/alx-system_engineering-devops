@@ -1,2 +1,2 @@
 #!/bin/bash
-for var in $(printenv | cut -d= -f1); do echo "$var=$(eval echo \$$var)"; done
+export | grep -E '^[A-Za-z_][A-Za-z0-9_]*=' | cut -d'=' -f1
