@@ -2,7 +2,9 @@
 # This script stops the 4-to_infinity_and_beyond process
 
 # Attempt to kill the process
-if kill $(pgrep -f 4-to_infinity_and_beyond); then
+pids=$(pgrep -f 4-to_infinity_and_beyond)  # Capture PIDs in a variable
+if [ -n "$pids" ]; then  # Check if any PIDs were found
+    kill "$pids"  # Quote the variable to prevent word splitting
     echo "Process terminated successfully."
 else
     echo "Process not found or could not be terminated."
