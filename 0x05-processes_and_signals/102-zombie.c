@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 /**
  * infinite_while - function that runs indefinitely
@@ -40,6 +42,12 @@ int main(void)
             perror("Fork failed");
             exit(1);
         }
+    }
+
+    // Reap the zombie processes
+    for (i = 0; i < 5; i++)
+    {
+        wait(NULL);  // Wait for any child process to exit
     }
     
     infinite_while();  // Keep the parent process running
