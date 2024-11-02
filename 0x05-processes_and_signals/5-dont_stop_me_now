@@ -1,4 +1,9 @@
 #!/bin/bash
 # This script stops the 4-to_infinity_and_beyond process
 
-kill $(pgrep -f 4-to_infinity_and_beyond)
+# Attempt to kill the process
+if kill $(pgrep -f 4-to_infinity_and_beyond); then
+    echo "Process terminated successfully."
+else
+    echo "Process not found or could not be terminated."
+fi
