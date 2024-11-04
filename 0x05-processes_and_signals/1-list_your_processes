@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # This script displays a list of currently running processes in a user-friendly, hierarchical format.
-ps -e -f --forest
+ps -eo user,start,command
