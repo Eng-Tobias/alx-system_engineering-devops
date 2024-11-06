@@ -1,15 +1,23 @@
 #!/usr/bin/env bash
-# This script displays hours from 0 to 12 and minutes from 1 to 59
 
+# Initialize the hour
 hour=0
-while [ $hour -le 12 ]
+
+# Loop through 24 hours (0 to 23)
+while [ $hour -lt 24 ]
 do
-  minute=1
-  while [ $minute -le 59 ]
+  # Display the hour
+  echo "Hour: $hour"
+  
+  # Loop through 60 minutes (0 to 59)
+  minute=0
+  while [ $minute -lt 60 ]
   do
-    echo "Hour: $hour"
+    # Display the minute
     echo $minute
-    ((minute++))
+    ((minute++))  # Increment minute
   done
+  
+  # Increment hour
   ((hour++))
 done
