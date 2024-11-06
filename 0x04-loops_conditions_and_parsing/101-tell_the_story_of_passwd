@@ -1,0 +1,5 @@
+#!/bin/bash
+# This script groups Apache log entries by IP and HTTP status code and sorts by occurrences
+
+# Use awk to extract the IP and HTTP code, count occurrences, and sort
+awk '{print $1, $9}' /var/log/apache2/access.log | sort | uniq -c | sort -nr
