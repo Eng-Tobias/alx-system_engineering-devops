@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This script tells the story of users in the /etc/passwd file
+
+# Read each line from /etc/passwd
+while IFS=: read -r username _ group_id _ _ home shell; do
+  # Output the formatted story for each user
+  echo "The user $username is part of the $group_id gang, lives in $home and rides $shell. $group_id's place is protected by the passcode x, more info about the user here: $username"
+done < /etc/passwd

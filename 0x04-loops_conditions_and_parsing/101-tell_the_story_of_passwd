@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script groups Apache log entries by IP and HTTP status code and sorts by occurrences
 
 # Use awk to extract the IP and HTTP code, count occurrences, and sort
