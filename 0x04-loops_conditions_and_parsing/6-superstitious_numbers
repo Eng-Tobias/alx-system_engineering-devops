@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script displays numbers from 1 to 20 with superstitions for specific numbers
 
 i=1
