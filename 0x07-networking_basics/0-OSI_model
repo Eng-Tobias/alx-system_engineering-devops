@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # This script answers the project questions.
-2
-2
+The OSI model is a conceptual model that characterizes the communication functions of a telecommunication system without regard to their underlying internal structure and technology.
+From the lowest to the highest level
+This is the second option. The OSI model is organized from Layer 1 (Physical layer) to Layer 7 (Application layer), which is the highest level.
