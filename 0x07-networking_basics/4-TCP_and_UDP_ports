@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Script to display listening ports with their PID and program names
+
+ss -tulnp
