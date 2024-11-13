@@ -4,13 +4,12 @@
 hour=0
 while [ $hour -le 12 ]
 do
+  echo "Hour: $hour"  # Display the hour once for each hour
   minute=1
   while [ $minute -le 59 ]
   do
-    echo "Hour: $hour"
-    echo $minute
-    ((minute++))
+    echo $minute  # Display the minute
+    ((minute++))   # Increment the minute
   done
-  ((hour++))
+  ((hour++))       # Increment the hour
 done
-
