@@ -1,15 +1,21 @@
 #!/usr/bin/env bash
-# This script installs and configures Nginx to display "Hello World!" on the root page
+# This script installs and configures Nginx to display "Hello World!" on the root page.
 
-# Update and install Nginx
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Update package list and install Nginx
 apt-get update -y
 apt-get install nginx -y
 
-# Create an HTML file at the root of the web server
-echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+# Ensure Nginx is installed
+if ! command -v nginx &> /dev/null; then
+  echo "Nginx installation failed"
+  exit 1
+fi
 
-# Start Nginx without using systemctl
-service nginx start
+# Create an HTML file with "Hello World!" at the root of the web server
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 
 # Ensure Nginx listens on port 80
 sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
@@ -17,3 +23,21 @@ sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/' /etc/nginx/sites-
 
 # Reload Nginx configuration
 service nginx reload
+
+# Start Nginx without using systemctl
+service nginx start
+
+# Verify Nginx is running
+if ! service nginx status > /dev/null; then
+  echo "Nginx failed to start"
+  exit 1
+fi
+
+# Final check to confirm the output of the root page
+output=$(curl -s http://localhost)
+if [[ "$output" != "Hello World!" ]]; then
+  echo "Unexpected output: $output"
+  exit 1
+fi
+
+echo "Nginx is configured and serving 'Hello World!' on port 80"
