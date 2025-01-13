@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This script installs and configures Nginx to display "Hello World!" on the root page
+
+# Update and install Nginx
+apt-get update -y
+apt-get install nginx -y
+
+# Create an HTML file at the root of the web server
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+
+# Start Nginx without using systemctl
+service nginx start
+
+# Ensure Nginx listens on port 80
+sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
+sed -i 's/listen \[::\]:80 default_server;/listen \[::\]:80;/' /etc/nginx/sites-available/default
+
+# Reload Nginx configuration
+service nginx reload
