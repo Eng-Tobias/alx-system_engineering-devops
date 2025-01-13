@@ -1,0 +1,5 @@
+#!/bin/bash
+echo "Authenticating to server..."
+echo "Username: sylvain"
+echo "Password: secret_password"
+echo "Authentication successful!"
