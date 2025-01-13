@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Update and install nginx if not installed
+apt-get update -y
+apt-get install nginx -y
+
+# Create a new configuration file for the redirection
+cat <<EOF > /etc/nginx/sites-available/default
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html index.htm;
+
+    server_name _;
+
+    # Redirect /redirect_me to the specified URL
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    # Default catch-all location
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+}
+EOF
+
+# Reload nginx to apply changes
+service nginx reload
